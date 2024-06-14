@@ -1,0 +1,1 @@
+ OpenGL/glad/libglad.a ../OpenGL/glfw-3.4.bin.WIN32/lib-vc2022/glfw3.lib -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
