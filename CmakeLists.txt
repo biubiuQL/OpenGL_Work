@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 
+# set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -m32")
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -m32")
+
 add_subdirectory(OpenGL/glad)
 # add_subdirectory(OpenGL/glfw-3.4.bin.WIN32)
 
@@ -7,5 +10,8 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/OpenGL/glfw-3.4.bin.WIN32/includ
 
 add_executable(main p1.cpp)
 
-target_link_libraries(main glad)
-target_link_libraries(main ${CMAKE_CURRENT_SOURCE_DIR}/OpenGL/glfw-3.4.bin.WIN32/lib-vc2022/glfw3.lib)
+# target_link_libraries(main PUBLIC glad)
+target_link_directories(main PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/OpenGL/glfw-3.4.bin.WIN32/lib-mingw-w64")
+# message("${CMAKE_CURRENT_SOURCE_DIR}/OpenGL/glfw-3.4.bin.WIN32/lib-vc2022/glfw3.lib")
+target_link_libraries(main PUBLIC libglfw3.a glad)
+# target_link_libraries(main glad glfw3)

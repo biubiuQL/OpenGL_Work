@@ -1,6 +1,7 @@
-CMakeFiles/main.dir/p1.cpp.obj: C:\Users\admin\Desktop\OpenGL_work\p1.cpp \
- C:/Users/admin/Desktop/OpenGL_work/OpenGL/glad/include/glad/glad.h \
- C:/Users/admin/Desktop/OpenGL_work/OpenGL/glad/include/KHR/khrplatform.h \
+CMakeFiles/main.dir/p1.cpp.obj: \
+ C:\Users\admin\Documents\OpenGL_Work\p1.cpp \
+ C:/Users/admin/Documents/OpenGL_Work/OpenGL/glad/include/glad/glad.h \
+ C:/Users/admin/Documents/OpenGL_Work/OpenGL/glad/include/KHR/khrplatform.h \
  C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stdint.h \
  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdint.h \
  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
@@ -12,7 +13,7 @@ CMakeFiles/main.dir/p1.cpp.obj: C:\Users\admin\Desktop\OpenGL_work\p1.cpp \
  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
  C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stddef.h \
  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stddef.h \
- C:/Users/admin/Desktop/OpenGL_work/OpenGL/glfw-3.4.bin.WIN32/include/GLFW/glfw3.h \
+ C:/Users/admin/Documents/OpenGL_Work/OpenGL/glfw-3.4.bin.WIN32/include/GLFW/glfw3.h \
  C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/iostream \
  C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/requires_hosted.h \
  C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \

@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/admin/Desktop/OpenGL_work/OpenGL/glad
+# Install script for directory: C:/Users/admin/Documents/OpenGL_Work/OpenGL/glad
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
