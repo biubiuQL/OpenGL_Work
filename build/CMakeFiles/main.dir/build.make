@@ -68,29 +68,29 @@ include CMakeFiles/main.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/main.dir/flags.make
 
-CMakeFiles/main.dir/p1.cpp.obj: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/p1.cpp.obj: CMakeFiles/main.dir/includes_CXX.rsp
-CMakeFiles/main.dir/p1.cpp.obj: ../p1.cpp
-CMakeFiles/main.dir/p1.cpp.obj: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\admin\Documents\OpenGL_Work\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/p1.cpp.obj"
-	C:\PROGRA~1\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/p1.cpp.obj -MF CMakeFiles\main.dir\p1.cpp.obj.d -o CMakeFiles\main.dir\p1.cpp.obj -c C:\Users\admin\Documents\OpenGL_Work\p1.cpp
+CMakeFiles/main.dir/p2.cpp.obj: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/p2.cpp.obj: CMakeFiles/main.dir/includes_CXX.rsp
+CMakeFiles/main.dir/p2.cpp.obj: ../p2.cpp
+CMakeFiles/main.dir/p2.cpp.obj: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\admin\Documents\OpenGL_Work\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/p2.cpp.obj"
+	C:\PROGRA~1\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/p2.cpp.obj -MF CMakeFiles\main.dir\p2.cpp.obj.d -o CMakeFiles\main.dir\p2.cpp.obj -c C:\Users\admin\Documents\OpenGL_Work\p2.cpp
 
-CMakeFiles/main.dir/p1.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/p1.cpp.i"
-	C:\PROGRA~1\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\admin\Documents\OpenGL_Work\p1.cpp > CMakeFiles\main.dir\p1.cpp.i
+CMakeFiles/main.dir/p2.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/p2.cpp.i"
+	C:\PROGRA~1\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\admin\Documents\OpenGL_Work\p2.cpp > CMakeFiles\main.dir\p2.cpp.i
 
-CMakeFiles/main.dir/p1.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/p1.cpp.s"
-	C:\PROGRA~1\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\admin\Documents\OpenGL_Work\p1.cpp -o CMakeFiles\main.dir\p1.cpp.s
+CMakeFiles/main.dir/p2.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/p2.cpp.s"
+	C:\PROGRA~1\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\admin\Documents\OpenGL_Work\p2.cpp -o CMakeFiles\main.dir\p2.cpp.s
 
 # Object files for target main
 main_OBJECTS = \
-"CMakeFiles/main.dir/p1.cpp.obj"
+"CMakeFiles/main.dir/p2.cpp.obj"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
-main.exe: CMakeFiles/main.dir/p1.cpp.obj
+main.exe: CMakeFiles/main.dir/p2.cpp.obj
 main.exe: CMakeFiles/main.dir/build.make
 main.exe: OpenGL/glad/libglad.a
 main.exe: CMakeFiles/main.dir/linklibs.rsp
