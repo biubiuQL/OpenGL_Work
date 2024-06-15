@@ -97,6 +97,33 @@ int main()
 	}
 	// ---片段着色器编译end
 	// ·······················着色器编译end
+
+	// ·······················创建着色器程序·····················
+
+	// 创建着色器程序
+	unsigned int shaderProgram = glCreateProgram();
+	// 附加顶点着色器
+	glAttachShader(shaderProgram, vertexShader);
+	// 附加片段着色器
+	glAttachShader(shaderProgram, fragmentShader);
+	// 链接着色器程序
+	glLinkProgram(shaderProgram);
+	// 检查链接结果
+	glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
+
+	glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
+	if (!success)
+	{
+		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
+		std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n"
+				  << infoLog << std::endl;
+	}
+	// 使用着色器程序
+	glUseProgram(shaderProgram);
+	// ·······················创建着色器程序end
+	glDeleteShader(vertexShader);
+	glDeleteShader(fragmentShader);
+	glVertexAttribPointer(0,3,GL_FLOAT,GL_TRUE,3*sizeof(float),(void*)0);
 }
 
 // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
