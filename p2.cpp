@@ -139,7 +139,6 @@ int main()
 	// 检查链接结果
 	glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
 
-	glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
 	if (!success)
 	{
 		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);

@@ -1,0 +1,7 @@
+
+run:
+	@cd build
+	@Remove-Item * -Recurse -Force
+	@cmake ..
+	@make
+	@./main.exe
