@@ -12,21 +12,21 @@ const unsigned int SCR_HEIGHT = 600;
 // ������ɫ��
 const char *vertexShaderSource = "#version 330 core\n"
                                  "layout (location = 0) in vec3 aPos;\n"
-                                 "out vec4 vertexColor;"
+                                 "layout (location = 1) in vec3 aColor;\n"
+                                 "out vec3 vertexColor;"
                                  "void main()\n"
                                  "{\n"
-                                 "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-                                 "vertexColor = vec4(0.5, 0.0, 0.0, 1.0);"
+                                 "gl_Position = vec4(aPos, 1.0f);\n"
+                                 "vertexColor = aColor;"
                                  "}\0";
 
 const char *fragmentShaderSource = "#version 330 core\n"
                                    "out vec4 FragColor;\n"
-                                   "in vec4 vertexColor;"
-                                   "uniform vec4 ourColor;"
+                                   "in vec3 vertexColor;"
                                    "void main()\n"
                                    "{\n"
-                                   "   //FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-                                   "FragColor = ourColor;"
+                                   "//FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+                                   "FragColor =vec4(vertexColor,1.0f) ;"
                                    "}\n\0";
 int main()
 {
@@ -56,10 +56,34 @@ int main()
     }
 
     float vertices[] = {
-        0.5f, 0.5f, 0.0f,   // 右上角
-        0.5f, -0.5f, 0.0f,  // 右下角
-        -0.5f, -0.5f, 0.0f, // 左下角
-        -0.5f, 0.5f, 0.0f   // 左上角
+        // 右上角  红色
+        0.5f,
+        0.5f,
+        0.0f,
+        1.0f,
+        0.0f,
+        0.0f,
+        // 右下角  绿色
+        0.5f,
+        -0.5f,
+        0.0f,
+        0.0f,
+        1.0f,
+        0.0f,
+        // 左下角 蓝色
+        -0.5f,
+        -0.5f,
+        0.0f,
+        0.0f,
+        0.0f,
+        1.0f,
+        // 左上角 红色
+        -0.5f,
+        0.5f,
+        0.0f,
+        1.0f,
+        0.0f,
+        0.0f,
     };
 
     unsigned int indices[] = {
@@ -85,9 +109,14 @@ int main()
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
     // 配置顶点属性：设置如何读取顶点属性，也就是顶点属性的内存布局
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_TRUE, 3 * sizeof(float), (void *)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_TRUE, 6 * sizeof(float), (void *)0);
     // 激活顶点属性数组
     glEnableVertexAttribArray(0);
+
+    // 配置顶点属性：设置如何读取顶点属性，也就是顶点属性的内存布局
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_TRUE, 6 * sizeof(float), (void *)(3 * sizeof(float)));
+    // 激活顶点属性数组
+    glEnableVertexAttribArray(1);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
@@ -171,12 +200,10 @@ int main()
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-
         float timeValue = glfwGetTime();
         float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
         // 着色器中uniform属性的索引/位置值
         int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
-        std::cout<<timeValue<<std::endl;
         glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
 
         // 使用渲染数组
