@@ -50,16 +50,29 @@ int main()
 	}
 
 	float vertices[] = {
-		-0.5f, -0.5f, 0.0f,
-		0.5f, -0.5f, 0.0f,
-		0.0f, 0.5f, 0.0f};
+		0.5f, 0.5f, 0.0f,	// 右上角
+		0.5f, -0.5f, 0.0f,	// 右下角
+		-0.5f, -0.5f, 0.0f, // 左下角
+		-0.5f, 0.5f, 0.0f	// 左上角
+	};
+
+	unsigned int indices[] = {
+		// 注意索引从0开始!
+		// 此例的索引(0,1,2,3)就是顶点数组vertices的下标，
+		// 这样可以由下标代表顶点组合成矩形
+
+		0, 1, 3, // 第一个三角形
+		1, 2, 3	 // 第二个三角形
+	};
 
 	// 创建顶点缓冲对象
-	unsigned int VBO, VAO;
+	unsigned int VBO, VAO, EBO;
+
 	glGenVertexArrays(1, &VAO);
-	// 1. 绑定VAO
 	glBindVertexArray(VAO);
+
 	glGenBuffers(1, &VBO);
+	glGenBuffers(1, &EBO);
 	// 绑定缓冲对象
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	// 向缓冲对象中写入数据
@@ -69,6 +82,11 @@ int main()
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_TRUE, 3 * sizeof(float), (void *)0);
 	// 激活顶点属性数组
 	glEnableVertexAttribArray(0);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+#pragma region 着色器编译，加载
 
 	// ·······················着色器编译····························
 
@@ -134,6 +152,9 @@ int main()
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
 
+#pragma endregion
+
+	glDrawArrays(GL_TRIANGLES, 0, 6);
 	while (!glfwWindowShouldClose(window))
 	{
 		// input
@@ -145,14 +166,12 @@ int main()
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		// draw our first triangle
-		glUseProgram(shaderProgram);
-		glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
-		glDrawArrays(GL_TRIANGLES, 0, 3);
-		// glBindVertexArray(0); // no need to unbind it every time
+		// 使用渲染数组
+		// glDrawArrays(GL_TRIANGLES, 0, 6);
 
-		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
-		// -------------------------------------------------------------------------------
+		// 使用渲染元素
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
