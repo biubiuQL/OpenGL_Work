@@ -4,7 +4,7 @@ add_subdirectory(OpenGL/glad)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/OpenGL/glfw-3.4.bin.WIN32/include)
 
-add_executable(main p22.cpp)
+add_executable(main p2.cpp)
 
 target_link_directories(main PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/OpenGL/glfw-3.4.bin.WIN32/lib-mingw-w64")
 target_link_libraries(main glfw3 glad)

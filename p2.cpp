@@ -55,10 +55,20 @@ int main()
 		0.0f, 0.5f, 0.0f};
 
 	// 创建顶点缓冲对象
-	unsigned int VBO;
+	unsigned int VBO, VAO;
+	glGenVertexArrays(1, &VAO);
+	// 1. 绑定VAO
+	glBindVertexArray(VAO);
 	glGenBuffers(1, &VBO);
+	// 绑定缓冲对象
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	// 向缓冲对象中写入数据
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+	// 配置顶点属性：设置如何读取顶点属性，也就是顶点属性的内存布局
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_TRUE, 3 * sizeof(float), (void *)0);
+	// 激活顶点属性数组
+	glEnableVertexAttribArray(0);
 
 	// ·······················着色器编译····························
 
@@ -123,7 +133,29 @@ int main()
 	// ·······················创建着色器程序end
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
-	glVertexAttribPointer(0,3,GL_FLOAT,GL_TRUE,3*sizeof(float),(void*)0);
+
+	while (!glfwWindowShouldClose(window))
+	{
+		// input
+		// -----
+		processInput(window);
+
+		// render
+		// ------
+		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		// draw our first triangle
+		glUseProgram(shaderProgram);
+		glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+		// glBindVertexArray(0); // no need to unbind it every time
+
+		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
+		// -------------------------------------------------------------------------------
+		glfwSwapBuffers(window);
+		glfwPollEvents();
+	}
 }
 
 // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
