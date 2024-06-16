@@ -1,7 +1,5 @@
-
+.PHONY: run
 run:
-	@cd build
-	@Remove-Item * -Recurse -Force
-	@cmake ..
-	@make
-	@./main.exe
+	@cmake -S . -B build
+	@cmake --build build
+	@./build/main.exe
