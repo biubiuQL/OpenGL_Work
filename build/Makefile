@@ -141,29 +141,29 @@ glad/fast:
 	$(MAKE) $(MAKESILENT) -f OpenGL\glad\CMakeFiles\glad.dir\build.make OpenGL/glad/CMakeFiles/glad.dir/build
 .PHONY : glad/fast
 
-p2.obj: p2.cpp.obj
-.PHONY : p2.obj
+p3.obj: p3.cpp.obj
+.PHONY : p3.obj
 
 # target to build an object file
-p2.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/p2.cpp.obj
-.PHONY : p2.cpp.obj
+p3.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/p3.cpp.obj
+.PHONY : p3.cpp.obj
 
-p2.i: p2.cpp.i
-.PHONY : p2.i
+p3.i: p3.cpp.i
+.PHONY : p3.i
 
 # target to preprocess a source file
-p2.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/p2.cpp.i
-.PHONY : p2.cpp.i
+p3.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/p3.cpp.i
+.PHONY : p3.cpp.i
 
-p2.s: p2.cpp.s
-.PHONY : p2.s
+p3.s: p3.cpp.s
+.PHONY : p3.s
 
 # target to generate assembly for a file
-p2.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/p2.cpp.s
-.PHONY : p2.cpp.s
+p3.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/p3.cpp.s
+.PHONY : p3.cpp.s
 
 # Help Target
 help:
@@ -175,9 +175,9 @@ help:
 	@echo ... rebuild_cache
 	@echo ... glad
 	@echo ... main
-	@echo ... p2.obj
-	@echo ... p2.i
-	@echo ... p2.s
+	@echo ... p3.obj
+	@echo ... p3.i
+	@echo ... p3.s
 .PHONY : help
 
 
