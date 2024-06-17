@@ -1,6 +1,0 @@
-C:/Users/admin/Documents/OpenGL_Work/build/CMakeFiles/edit_cache.dir
-C:/Users/admin/Documents/OpenGL_Work/build/CMakeFiles/main.dir
-C:/Users/admin/Documents/OpenGL_Work/build/CMakeFiles/rebuild_cache.dir
-C:/Users/admin/Documents/OpenGL_Work/build/OpenGL/glad/CMakeFiles/glad.dir
-C:/Users/admin/Documents/OpenGL_Work/build/OpenGL/glad/CMakeFiles/edit_cache.dir
-C:/Users/admin/Documents/OpenGL_Work/build/OpenGL/glad/CMakeFiles/rebuild_cache.dir
