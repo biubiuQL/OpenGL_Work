@@ -6,8 +6,10 @@ mkdir:
 clean:mkdir
 	@del /s /q /f build\* && for /d %%x in (build\*) do rmdir /s /q "%%x"
 
-run:clean
+compile:clean
 	@cmake -S . -B build
 	@cmake --build build
+
+run:compile
 	@./build/main.exe
 

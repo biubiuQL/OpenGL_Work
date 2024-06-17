@@ -2,6 +2,11 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <math.h>
+#include "Shader.cpp"
+#include <string>
+
+using namespace std;
+
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void processInput(GLFWwindow *window);
 
@@ -9,26 +14,6 @@ void processInput(GLFWwindow *window);
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
-// ������ɫ��
-const char *vertexShaderSource = "#version 330 core\n"
-                                 "layout (location = 0) in vec3 aPos;\n"
-                                 "layout (location = 1) in vec3 aColor;\n"
-                                 "out vec3 vertexColor;"
-                                 "void main()\n"
-                                 "{\n"
-                                 "gl_Position = vec4(aPos, 1.0f);\n"
-                                 "vertexColor = aColor;"
-                                 "}\0";
-
-const char *fragmentShaderSource = "#version 330 core\n"
-                                   "out vec4 FragColor;\n"
-                                   "in vec3 vertexColor;\n"
-                                   "// uniform vec4 ourColor;\n"
-                                   "void main()\n"
-                                   "{\n"
-                                   "// FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-                                   "FragColor =vec4(vertexColor,1.0f) ;\n"
-                                   "}\n\0";
 int main()
 {
     // glfw: initialize and configure
@@ -122,70 +107,13 @@ int main()
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-#pragma region 着色器编译，加载
+#pragma region 着色器加载
 
-    // ·······················着色器编译····························
-
-    // -----------顶点着色器编译
-    // 创建顶点着色器
-    unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    // 读取顶点着色器源代码
-    glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-    // 编译顶点着色器
-    glCompileShader(vertexShader);
-    // 检查编译结果
-    int success;
-    char infoLog[512];
-    glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-    if (!success)
-    {
-        glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n"
-                  << infoLog << std::endl;
-    }
-    // ---顶点着色器编译end
-
-    // ---片段着色器编译
-    // 创建片段着色器
-    unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    // 读取片段着色器源代码
-    glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-    // 编译片段着色器
-    glCompileShader(fragmentShader);
-    glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
-    if (!success)
-    {
-        glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n"
-                  << infoLog << std::endl;
-    }
-    // ---片段着色器编译end
-    // ·······················着色器编译end
-
-    // ·······················创建着色器程序·····················
-
-    // 创建着色器程序
-    unsigned int shaderProgram = glCreateProgram();
-    // 附加顶点着色器
-    glAttachShader(shaderProgram, vertexShader);
-    // 附加片段着色器
-    glAttachShader(shaderProgram, fragmentShader);
-    // 链接着色器程序
-    glLinkProgram(shaderProgram);
-    // 检查链接结果
-    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
-
-    if (!success)
-    {
-        glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n"
-                  << infoLog << std::endl;
-    }
-    // 使用着色器程序
-    glUseProgram(shaderProgram);
-    // ·······················创建着色器程序end
-    glDeleteShader(vertexShader);
-    glDeleteShader(fragmentShader);
+    std::string rootPath = "C:\\Users\\admin\\Documents\\OpenGL_Work\\shader\\";
+    string vertexPath = rootPath + "Vertex.vs";
+    string fragmentPath = rootPath + "Fragment.fs";
+    Shader shader(vertexPath.c_str(), fragmentPath.c_str());
+    shader.use();
 
 #pragma endregion
 
@@ -203,9 +131,7 @@ int main()
 
         float timeValue = glfwGetTime();
         float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
-        // 着色器中uniform属性的索引/位置值
-        int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
-        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+        shader.setGlUniform4f("ourColor", 0.0f, greenValue, 0.0f, 1.0f);
 
         // 使用渲染数组
         // glDrawArrays(GL_TRIANGLES, 0, 6);
