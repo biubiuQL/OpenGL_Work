@@ -1,1 +1,1 @@
-  -L"C:/Users/lirong/Documents/OpenGL_Work/OpenGL/glfw-3.4.bin.WIN32/lib-mingw-w64"  -lglfw3 OpenGL/glad/libglad.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
+  -LC:/Users/admin/Documents/OpenGL_Work/OpenGL/glfw-3.4.bin.WIN32/lib-mingw-w64  -lglfw3 OpenGL/glad/libglad.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

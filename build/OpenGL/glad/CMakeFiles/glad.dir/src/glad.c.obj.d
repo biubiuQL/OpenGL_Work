@@ -1,5 +1,5 @@
 OpenGL/glad/CMakeFiles/glad.dir/src/glad.c.obj: \
- C:\Users\lirong\Documents\OpenGL_Work\OpenGL\glad\src\glad.c \
+ C:\Users\admin\Documents\OpenGL_Work\OpenGL\glad\src\glad.c \
  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdio.h \
  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/corecrt.h \
@@ -23,8 +23,8 @@ OpenGL/glad/CMakeFiles/glad.dir/src/glad.c.obj: \
  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/errno.h \
  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/string.h \
  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/string_s.h \
- C:/Users/lirong/Documents/OpenGL_Work/OpenGL/glad/include/glad/glad.h \
- C:/Users/lirong/Documents/OpenGL_Work/OpenGL/glad/include/KHR/khrplatform.h \
+ C:/Users/admin/Documents/OpenGL_Work/OpenGL/glad/include/glad/glad.h \
+ C:/Users/admin/Documents/OpenGL_Work/OpenGL/glad/include/KHR/khrplatform.h \
  C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stdint.h \
  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdint.h \
  C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stddef.h \
