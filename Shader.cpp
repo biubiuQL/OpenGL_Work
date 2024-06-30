@@ -84,6 +84,13 @@ public:
         glUniform4f(location, v0, v1, v2, v3);
     }
 
+    void setGlUniform1i(const std::string &name, int v0)
+    {
+        // 着色器中uniform属性的索引/位置值
+        int location = glGetUniformLocation(ProgramID, name.c_str());
+        glUniform1i(location, v0);
+    }
+
 private:
     // utility function for checking shader compilation/linking errors.
     // ------------------------------------------------------------------------
