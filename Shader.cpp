@@ -84,6 +84,13 @@ public:
         glUniform4f(location, v0, v1, v2, v3);
     }
 
+    void setUniformMatrix4f(const std::string &name, GLsizei count, GLboolean transpose, const GLfloat *value)
+    {
+        // 着色器中uniform属性的索引/位置值
+        int location = glGetUniformLocation(ProgramID, name.c_str());
+        glUniformMatrix4fv(location, count, transpose, value);
+    }
+
     void setGlUniform1i(const std::string &name, int v0)
     {
         // 着色器中uniform属性的索引/位置值
